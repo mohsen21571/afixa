@@ -21,70 +21,88 @@ const FEAT = [
   { c:6, ic:I.v6, name:'جداسازی صدای خواننده', desc:'صدای خواننده را از ساز جدا کنید و نسخه‌ی کارائوکه بسازید.' },
 ]
 
-const SAMP = [
-  { c:3, name:'حذف نویز صدا', proj:'گفتار شفاف', note:'قبل و بعد از حذف نویز' },
-  { c:1, name:'تغییر صدا', proj:'چند صدا از یک نفر', note:'تبدیل تُن و جنسیت صدا' },
-  { c:4, name:'گویندگی متن', proj:'روایت فارسی', note:'متن به گفتار طبیعی' },
-  { c:5, name:'ساخت موسیقی', proj:'قطعه‌ی بی‌کلام', note:'موسیقی بدون کپی‌رایت' },
-  { c:6, name:'جداسازی وکال', proj:'نسخه‌ی کارائوکه', note:'جدا کردن خواننده از ساز' },
-  { c:2, name:'بهبود پادکست', proj:'اپیزود تمیز', note:'نرمال‌سازی و حذف سکوت' },
+const PF = [
+  { c:1, t:'صوت', dur:'۰:۱۲', name:'تقلید صدا', sub:'تبدیل صدای گوینده', size:'lg', freq:196 },
+  { c:3, t:'صوت', dur:'۰:۰۸', name:'حذف نویز', sub:'قبل / بعد', size:'', freq:220 },
+  { c:4, t:'صوت', dur:'۰:۱۵', name:'گویندگی فارسی', sub:'متن به گفتار', size:'', freq:262 },
+  { c:5, t:'صوت', dur:'۰:۲۰', name:'ساخت موسیقی', sub:'قطعه‌ی بی‌کلام', size:'wide', freq:174 },
+  { c:6, t:'صوت', dur:'۰:۱۸', name:'کارائوکه', sub:'جداسازی وکال', size:'', freq:233 },
+  { c:2, t:'صوت', dur:'۰:۲۵', name:'بهبود پادکست', sub:'نرمال‌سازی صدا', size:'', freq:208 },
+  { c:1, t:'صوت', dur:'۰:۱۰', name:'تغییر صدای زنده', sub:'افکت بلادرنگ', size:'', freq:294 },
+  { c:5, t:'صوت', dur:'۰:۳۰', name:'افکت صوتی', sub:'ساخت ساند‌افکت', size:'wide', freq:147 },
 ]
-
-const FAQ = [
-  ['آیا استفاده از افیکسا رایگان است؟','بله، افیکسا یک پلن رایگان دارد که دسترسی به همه‌ی توانایی‌ها را با استفاده‌ی روزانه‌ی محدود فراهم می‌کند. برای حجم بیشتر و کیفیت بالاتر می‌توانید به پلن حرفه‌ای ارتقا دهید.'],
-  ['چه فرمت‌هایی پشتیبانی می‌شوند؟','رایج‌ترین فرمت‌های صوتی مانند MP3، WAV، M4A و OGG پشتیبانی می‌شوند.'],
-  ['آیا فایل‌های من ذخیره می‌شوند؟','حریم خصوصی شما مهم است؛ فایل‌ها فقط برای انجام پردازش استفاده و پس از مدتی کوتاه به‌صورت خودکار حذف می‌شوند.'],
-  ['آیا به نصب نرم‌افزار نیاز دارم؟','خیر. افیکسا کاملاً در مرورگر کار می‌کند؛ کافی است سایت را باز کنید.'],
-  ['کیفیت خروجی‌ها چطور است؟','در پلن رایگان کیفیت استاندارد و در پلن حرفه‌ای بالاترین کیفیت و بدون واترمارک ارائه می‌شود.'],
-]
-
-const bars = (n, seed) => {
+const micIc = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>'
+const pauseIc = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>'
+const pfbars = (n, seed) => {
   let h = ''
   for (let i = 0; i < n; i++) {
-    const r = Math.abs(Math.sin((i + seed) * 0.7) * 0.6 + Math.sin((i + seed) * 0.23) * 0.4)
-    h += `<i style="height:${Math.round((0.18 + r * 0.82) * 100)}%"></i>`
+    const r = Math.abs(Math.sin((i + seed) * 0.6) * 0.6 + Math.sin((i + seed) * 0.21) * 0.4)
+    h += `<i style="height:${Math.round((0.22 + r * 0.78) * 100)}%;--d:${(0.7 + ((i * 5) % 8) / 10).toFixed(2)}s;--dd:${((i % 7) * 0.06).toFixed(2)}s"></i>`
   }
   return h
 }
-const abars = (n, seed) => {
-  let h = ''
-  for (let i = 0; i < n; i++) {
-    const hh = Math.round((0.2 + Math.abs(Math.sin((i + seed) * 0.6)) * 0.8) * 100)
-    h += `<i style="height:${hh}%;--dur:${(0.8 + ((i * 7) % 9) / 10).toFixed(2)}s;--dl:${((i % 9) * 0.07).toFixed(2)}s"></i>`
-  }
-  return h
+document.getElementById('pfgrid').innerHTML = PF.map((p, i) => {
+  const big = p.size === 'lg' || p.size === 'wide'
+  const nb = big ? 34 : 20
+  return `<article class="pf ${p.size}" style="--cat:var(--c${p.c})" data-freq="${p.freq}" tabindex="0" role="button" aria-label="پخش نمونه ${p.name}">
+    <span class="pf-ov"></span>
+    <div class="pf-top"><span class="pf-type">${micIc}${p.t}</span><span class="pf-dur">${p.dur}</span></div>
+    <div class="pf-wave">${pfbars(nb, i * 4)}</div>
+    <div class="pf-bot"><span class="pf-meta"><b>${p.name}</b><span>${p.sub}</span></span>
+      <button class="pf-play" aria-label="پخش یا توقف"><span class="ic-play">${I.play}</span><span class="ic-pause">${pauseIc}</span></button></div>
+    <span class="pf-prog"><i></i></span></article>`
+}).join('')
+
+let actx, curr = null, ctimer = null
+const stopAll = () => {
+  document.querySelectorAll('.pf.playing').forEach(x => {
+    x.classList.remove('playing')
+    const b = x.querySelector('.pf-prog i')
+    if (b) { b.style.transition = 'none'; b.style.width = '0' }
+  })
+  if (curr) { curr.stop(); curr = null }
+  if (ctimer) { clearTimeout(ctimer); ctimer = null }
 }
-
-// توانایی‌ها
-document.getElementById('fgrid').innerHTML = FEAT.map((f, i) => `
-  <div class="fcard" style="--cat:var(--c${f.c})">
-    <div class="fi">${f.ic}</div>
-    <h4 class="text-[16.5px] font-extrabold mb-[7px]">${f.name}</h4>
-    <p class="text-[13.5px] text-muted flex-1">${f.desc}</p>
-    <div class="fwave">${bars(30, i * 4 + 1)}</div>
-    <div class="text-[11px] font-semibold text-faint mt-2 font-mono">خروجی نمونه</div>
-  </div>`).join('')
-
-// نمونه‌ها
-document.getElementById('sgrid').innerHTML = SAMP.map((s, i) => `
-  <article class="samp" style="--cat:var(--c${s.c})">
-    <div class="samp-thumb">
-      <span class="glow"></span>
-      <span class="badge">نمونه</span>
-      <button class="play" aria-label="پیش‌نمایش ${s.name}">${I.play}</button>
-      <div class="eqov">${abars(26, i * 5)}</div>
-      <h4 class="ttl">${s.name}</h4>
-    </div>
-    <div class="flex items-center justify-between gap-2.5 px-4 py-[14px]">
-      <b class="text-[13.5px] text-[color:var(--cat)]">«${s.proj}»</b>
-      <span class="text-[12.5px] text-muted text-end">${s.note}</span>
-    </div>
-  </article>`).join('')
-
-document.querySelectorAll('.samp .play').forEach(btn => btn.onclick = () => {
-  const card = btn.closest('.samp')
-  const on = card.classList.toggle('playing')
-  if (on) setTimeout(() => card.classList.remove('playing'), 3200)
+const playPF = (tile) => {
+  const on = tile.classList.contains('playing')
+  stopAll()
+  if (on) return
+  tile.classList.add('playing')
+  const dur = 4.6
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)()
+    if (actx.state === 'suspended') actx.resume()
+  } catch (e) { actx = null }
+  if (actx) {
+    const base = +tile.dataset.freq || 220, now = actx.currentTime
+    const master = actx.createGain()
+    master.gain.setValueAtTime(0.0001, now)
+    master.gain.exponentialRampToValueAtTime(0.12, now + 0.08)
+    master.connect(actx.destination)
+    const o = actx.createOscillator(); o.type = 'triangle'; o.connect(master)
+    const pad = actx.createGain(); pad.gain.value = 0.045; pad.connect(actx.destination)
+    const o2 = actx.createOscillator(); o2.type = 'sine'; o2.connect(pad)
+    const seq = [0, 7, 12, 7, 5, 10, 3, 12], step = dur / seq.length
+    seq.forEach((nn, k) => {
+      const f = base * Math.pow(2, nn / 12)
+      o.frequency.setValueAtTime(f, now + k * step)
+      o2.frequency.setValueAtTime(f / 2, now + k * step)
+    })
+    master.gain.setValueAtTime(0.12, now + dur - 0.4)
+    master.gain.exponentialRampToValueAtTime(0.0001, now + dur)
+    o.start(now); o2.start(now); o.stop(now + dur); o2.stop(now + dur)
+    curr = { stop () { try { o.stop(); o2.stop() } catch (e) {} } }
+  }
+  const bar = tile.querySelector('.pf-prog i')
+  if (bar) {
+    bar.style.transition = 'none'; bar.style.width = '0'
+    requestAnimationFrame(() => { bar.style.transition = 'width ' + dur + 's linear'; bar.style.width = '100%' })
+  }
+  ctimer = setTimeout(() => { tile.classList.remove('playing'); curr = null }, dur * 1000 + 60)
+}
+document.querySelectorAll('.pf').forEach(el => {
+  el.addEventListener('click', () => playPF(el))
+  el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playPF(el) } })
 })
 
 // سؤالات متداول
