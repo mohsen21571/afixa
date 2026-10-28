@@ -26,10 +26,11 @@ const PF = [
   { c:3, t:'صوت', dur:'۰:۰۸', name:'حذف نویز', sub:'قبل / بعد', size:'', freq:220 },
   { c:4, t:'صوت', dur:'۰:۱۵', name:'گویندگی فارسی', sub:'متن به گفتار', size:'', freq:262 },
   { c:5, t:'صوت', dur:'۰:۲۰', name:'ساخت موسیقی', sub:'قطعه‌ی بی‌کلام', size:'wide', freq:174 },
-  { c:6, t:'صوت', dur:'۰:۱۸', name:'کارائوکه', sub:'جداسازی وکال', size:'', freq:233 },
+  { c:6, t:'صوت', dur:'۰:۱۸', name:'کارائوکه', sub:'جداسازی وکال', size:'wide', freq:233 },
   { c:2, t:'صوت', dur:'۰:۲۵', name:'بهبود پادکست', sub:'نرمال‌سازی صدا', size:'', freq:208 },
   { c:1, t:'صوت', dur:'۰:۱۰', name:'تغییر صدای زنده', sub:'افکت بلادرنگ', size:'', freq:294 },
   { c:5, t:'صوت', dur:'۰:۳۰', name:'افکت صوتی', sub:'ساخت ساند‌افکت', size:'wide', freq:147 },
+  { c:3, t:'صوت', dur:'۰:۲۲', name:'دوبله و نریشن', sub:'صداگذاری حرفه‌ای', size:'wide', freq:185 },
 ]
 const micIc = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>'
 const pauseIc = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>'

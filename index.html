@@ -115,7 +115,7 @@ nav.main a:hover{color:var(--ink);background:var(--surface-2)}
 
 /* portfolio — bento متراکم */
 .samples{padding-block:60px;background:var(--surface-2);border-block:1px solid var(--line)}
-.pf-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:146px;grid-auto-flow:dense;gap:14px}
+.pf-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:14px}
 .pf{--cat:var(--brand);position:relative;overflow:hidden;border-radius:16px;cursor:pointer;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:14px;border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s;background:radial-gradient(130% 130% at 72% 12%,color-mix(in srgb,var(--cat) 82%,#fff) 0%,var(--cat) 40%,color-mix(in srgb,var(--cat) 58%,#000) 100%)}
 .pf:hover{transform:translateY(-3px);box-shadow:0 18px 40px -20px color-mix(in srgb,var(--cat) 70%,transparent)}
 .pf:focus-visible{outline:2px solid #fff;outline-offset:2px}
@@ -147,6 +147,17 @@ nav.main a:hover{color:var(--ink);background:var(--surface-2)}
 @media (max-width:900px){.pf-grid{grid-template-columns:repeat(2,1fr)}.pf.lg{grid-row:span 2}}
 @media (max-width:560px){.pf-grid{grid-template-columns:1fr;grid-auto-rows:128px}.pf.lg,.pf.wide,.pf.tall{grid-column:auto;grid-row:auto}}
 @media (prefers-reduced-motion:reduce){.pf.playing .pf-wave i{animation:none}}
+/* نظرات مشتریان */
+.reviews{padding-block:60px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rcard{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.stars{color:#F5B301;font-size:16px;letter-spacing:2px;line-height:1}
+.rquote{font-size:14.5px;color:var(--ink);line-height:2;flex:1}
+.rperson{display:flex;align-items:center;gap:12px}
+.ravatar{width:42px;height:42px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;color:#fff;font-weight:800;font-size:16px;background:linear-gradient(145deg,var(--cat,var(--brand)),color-mix(in srgb,var(--cat,var(--brand)) 70%,#000))}
+.rperson b{display:block;font-size:14px;font-weight:700}.rperson>span>span{font-size:12.5px;color:var(--muted)}
+.rnote{text-align:center;font-size:12.5px;color:var(--faint);margin-top:22px}
+@media (max-width:760px){.rgrid{grid-template-columns:1fr}}
 
 .steps{padding-block:60px}
 .stgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -216,6 +227,7 @@ footer ul a{font-size:13.5px;color:var(--muted)}footer ul a:hover{color:var(--br
     <nav class="main">
       <a href="#samples">نمونه‌ها</a>
       <a href="#features">توانایی‌ها</a>
+      <a href="#reviews">نظرات</a>
       <a href="#steps">نحوه‌ی کار</a>
       <a href="#pricing">تعرفه</a>
       <a href="#faq">سؤالات</a>
@@ -267,6 +279,18 @@ footer ul a{font-size:13.5px;color:var(--muted)}footer ul a:hover{color:var(--br
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">توانایی‌های افیکسا</span><h2>هر چه برای کار با صدا لازم داری</h2><p>شش ابزار هوشمند با رابط فارسی؛ از تغییر صدا تا ساخت موسیقی، همه زیر یک سقف.</p></div>
     <div class="fgrid" id="fgrid"></div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">نظرات مشتریان</span><h2>کاربران افیکسا چه می‌گویند</h2><p>تجربه‌ی کسانی که با افیکسا کار صدایشان را حرفه‌ای کرده‌اند.</p></div>
+    <div class="rgrid">
+      <div class="rcard" style="--cat:var(--c3)"><div class="stars" aria-label="امتیاز ۵ از ۵">★★★★★</div><p class="rquote">«کیفیت حذف نویز افیکسا واقعاً عالیه؛ پادکستم را تمیز و حرفه‌ای تحویل می‌گیرم.»</p><div class="rperson"><span class="ravatar">س</span><span><b>سارا محمدی</b><span>پادکستر</span></span></div></div>
+      <div class="rcard" style="--cat:var(--c4)"><div class="stars" aria-label="امتیاز ۵ از ۵">★★★★★</div><p class="rquote">«گویندگی فارسی‌اش خیلی طبیعیه؛ برای ویدیوهای آموزشی‌ام زمان زیادی صرفه‌جویی کردم.»</p><div class="rperson"><span class="ravatar">ر</span><span><b>رضا کریمی</b><span>تولیدکننده محتوا</span></span></div></div>
+      <div class="rcard" style="--cat:var(--c6)"><div class="stars" aria-label="امتیاز ۵ از ۵">★★★★★</div><p class="rquote">«جداسازی وکال با کیفیت استودیویی؛ برای ساخت کارائوکه بی‌نظیره.»</p><div class="rperson"><span class="ravatar">ن</span><span><b>نیما عباسی</b><span>تنظیم‌کننده</span></span></div></div>
+    </div>
+    <p class="rnote">این نظرات نمونه هستند؛ با نظرات واقعی مشتریان جایگزین شوند.</p>
   </div>
 </section>
 
@@ -382,10 +406,11 @@ const PF=[
  {c:3,t:'صوت',dur:'۰:۰۸',name:'حذف نویز',sub:'قبل / بعد',size:'',freq:220},
  {c:4,t:'صوت',dur:'۰:۱۵',name:'گویندگی فارسی',sub:'متن به گفتار',size:'',freq:262},
  {c:5,t:'صوت',dur:'۰:۲۰',name:'ساخت موسیقی',sub:'قطعه‌ی بی‌کلام',size:'wide',freq:174},
- {c:6,t:'صوت',dur:'۰:۱۸',name:'کارائوکه',sub:'جداسازی وکال',size:'',freq:233},
+ {c:6,t:'صوت',dur:'۰:۱۸',name:'کارائوکه',sub:'جداسازی وکال',size:'wide',freq:233},
  {c:2,t:'صوت',dur:'۰:۲۵',name:'بهبود پادکست',sub:'نرمال‌سازی صدا',size:'',freq:208},
  {c:1,t:'صوت',dur:'۰:۱۰',name:'تغییر صدای زنده',sub:'افکت بلادرنگ',size:'',freq:294},
  {c:5,t:'صوت',dur:'۰:۳۰',name:'افکت صوتی',sub:'ساخت ساند‌افکت',size:'wide',freq:147},
+ {c:3,t:'صوت',dur:'۰:۲۲',name:'دوبله و نریشن',sub:'صداگذاری حرفه‌ای',size:'wide',freq:185},
 ];
 const micIc='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>';
 const pauseIc='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
