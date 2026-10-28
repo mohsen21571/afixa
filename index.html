@@ -71,7 +71,7 @@ nav.main a:hover{color:var(--ink);background:var(--surface-2)}
 
 .hero{position:relative;color:var(--hero-fg);overflow:hidden;border-bottom:1px solid var(--hero-line);
   background:radial-gradient(900px 440px at 88% -12%,color-mix(in srgb,var(--brand) 26%,transparent),transparent 60%),radial-gradient(760px 420px at 2% 118%,color-mix(in srgb,var(--c3) 28%,transparent),transparent 55%),linear-gradient(180deg,var(--hero-bg-2),var(--hero-bg))}
-.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;padding-block:58px}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;padding-block:46px}
 .hero .eyebrow{color:var(--hero-fg);background:color-mix(in srgb,#fff 9%,transparent);border-color:var(--hero-line)}
 .hero .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 28%,transparent)}
 .hero h1{font-size:clamp(30px,5vw,52px);font-weight:900;letter-spacing:-.8px;margin:20px 0 0;max-width:15ch}
@@ -113,26 +113,40 @@ nav.main a:hover{color:var(--ink);background:var(--surface-2)}
 .fwave i{flex:1 1 0;min-width:0;border-radius:2px;background:var(--cat);opacity:.8}
 .flabel{font-size:11px;font-weight:600;color:var(--faint);margin-top:8px;font-family:"JetBrains Mono",monospace}
 
-/* samples showcase */
+/* portfolio — bento متراکم */
 .samples{padding-block:60px;background:var(--surface-2);border-block:1px solid var(--line)}
-.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.samp{--cat:var(--brand);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.18s}
-.samp:hover{transform:translateY(-4px)}
-.thumb{position:relative;aspect-ratio:16/10;display:grid;place-items:center;overflow:hidden;
-  background:radial-gradient(120% 120% at 70% 15%,color-mix(in srgb,var(--cat) 85%,#fff) 0%,var(--cat) 38%,color-mix(in srgb,var(--cat) 60%,#000) 100%)}
-.thumb .glow{position:absolute;width:62%;aspect-ratio:1;border-radius:50%;background:color-mix(in srgb,#fff 26%,transparent);filter:blur(6px)}
-.thumb .badge{position:absolute;inset-block-start:12px;inset-inline-end:12px;z-index:3;font-size:11px;font-weight:700;color:#fff;background:color-mix(in srgb,#000 35%,transparent);backdrop-filter:blur(4px);border:1px solid color-mix(in srgb,#fff 25%,transparent);border-radius:999px;padding:3px 11px}
-.thumb .play{position:relative;z-index:3;width:60px;height:60px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;color:var(--cat);background:rgba(255,255,255,.92);box-shadow:0 10px 24px -8px rgba(0,0,0,.5);transition:.18s}
-.thumb .play:hover{transform:scale(1.07)}.thumb .play svg{width:26px;height:26px;margin-inline-start:3px}
-.thumb .ttl{position:absolute;inset-block-end:0;inset-inline:0;z-index:3;padding:26px 16px 14px;color:#fff;font-size:16px;font-weight:800;
-  background:linear-gradient(0deg,rgba(0,0,0,.55),transparent)}
-.thumb .eqov{position:absolute;inset:0;z-index:2;display:none;align-items:flex-end;gap:3px;padding:20px;background:color-mix(in srgb,#000 22%,transparent)}
-.thumb .eqov i{flex:1 1 0;min-width:0;border-radius:3px 3px 0 0;background:rgba(255,255,255,.9);transform-origin:bottom;animation:eq var(--dur,1s) ease-in-out var(--dl,0s) infinite alternate}
-.samp.playing .eqov{display:flex}.samp.playing .play{display:none}
-.scap{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.scap b{font-size:13.5px;color:var(--cat)}.scap span{font-size:12.5px;color:var(--muted);text-align:end}
+.pf-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:146px;grid-auto-flow:dense;gap:14px}
+.pf{--cat:var(--brand);position:relative;overflow:hidden;border-radius:16px;cursor:pointer;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:14px;border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s;background:radial-gradient(130% 130% at 72% 12%,color-mix(in srgb,var(--cat) 82%,#fff) 0%,var(--cat) 40%,color-mix(in srgb,var(--cat) 58%,#000) 100%)}
+.pf:hover{transform:translateY(-3px);box-shadow:0 18px 40px -20px color-mix(in srgb,var(--cat) 70%,transparent)}
+.pf:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.pf.lg{grid-column:span 2;grid-row:span 2}
+.pf.wide{grid-column:span 2}
+.pf.tall{grid-row:span 2}
+.pf-ov{position:absolute;inset:0;z-index:1;background:radial-gradient(60% 60% at 72% 18%,color-mix(in srgb,#fff 20%,transparent),transparent)}
+.pf-top{display:flex;align-items:center;gap:8px;z-index:2}
+.pf-type{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;background:color-mix(in srgb,#000 30%,transparent);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:1px solid color-mix(in srgb,#fff 25%,transparent);border-radius:999px;padding:3px 10px}
+.pf-type svg{width:12px;height:12px}
+.pf-dur{margin-inline-start:auto;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;opacity:.92}
+.pf-wave{display:flex;align-items:flex-end;gap:2px;height:30px;z-index:2;margin-block:6px}
+.pf.lg .pf-wave,.pf.tall .pf-wave{height:60px}
+.pf-wave i{flex:1 1 0;min-width:0;border-radius:2px 2px 0 0;background:rgba(255,255,255,.82);transform-origin:bottom}
+.pf.playing .pf-wave i{animation:eq var(--d,1s) ease-in-out var(--dd,0s) infinite alternate}
+.pf-bot{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;z-index:2}
+.pf-meta b{display:block;font-size:14.5px;font-weight:800;line-height:1.3}
+.pf.lg .pf-meta b{font-size:19px}
+.pf-meta span{font-size:11.5px;opacity:.9}
+.pf-play{width:42px;height:42px;flex:0 0 auto;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;color:var(--cat);background:rgba(255,255,255,.95);box-shadow:0 8px 18px -6px rgba(0,0,0,.5);transition:.16s}
+.pf-play:hover{transform:scale(1.08)}
+.pf-play svg{width:20px;height:20px}
+.pf-play .ic-play{margin-inline-start:2px}
+.pf-play .ic-pause{display:none}
+.pf.playing .pf-play .ic-play{display:none}.pf.playing .pf-play .ic-pause{display:block}
+.pf-prog{position:absolute;inset-inline:0;inset-block-end:0;height:4px;background:color-mix(in srgb,#000 22%,transparent);z-index:3}
+.pf-prog i{display:block;height:100%;width:0;background:#fff}
 .samp-note{text-align:center;font-size:12.5px;color:var(--faint);margin-top:24px}
-@media (prefers-reduced-motion:reduce){.thumb .eqov i{animation:none}}
+@media (max-width:900px){.pf-grid{grid-template-columns:repeat(2,1fr)}.pf.lg{grid-row:span 2}}
+@media (max-width:560px){.pf-grid{grid-template-columns:1fr;grid-auto-rows:128px}.pf.lg,.pf.wide,.pf.tall{grid-column:auto;grid-row:auto}}
+@media (prefers-reduced-motion:reduce){.pf.playing .pf-wave i{animation:none}}
 
 .steps{padding-block:60px}
 .stgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -200,8 +214,8 @@ footer ul a{font-size:13.5px;color:var(--muted)}footer ul a:hover{color:var(--br
       <span class="meta"><span class="nm">افیکسا</span><span class="dm">fxa.ir</span></span>
     </a>
     <nav class="main">
-      <a href="#features">توانایی‌ها</a>
       <a href="#samples">نمونه‌ها</a>
+      <a href="#features">توانایی‌ها</a>
       <a href="#steps">نحوه‌ی کار</a>
       <a href="#pricing">تعرفه</a>
       <a href="#faq">سؤالات</a>
@@ -220,9 +234,9 @@ footer ul a{font-size:13.5px;color:var(--muted)}footer ul a:hover{color:var(--br
       <h1>هر کاری با <span class="hl">صدا</span>، در یک استودیوی هوشمند</h1>
       <p class="sub">افیکسا صدا را تغییر می‌دهد، نویز را پاک می‌کند، گفتار را به متن تبدیل می‌کند، موسیقی می‌سازد و صدای خواننده را از آهنگ جدا می‌کند — همه به‌صورت آنلاین و فارسی.</p>
       <div class="cta">
-        <a href="#features" class="btn btn-primary">توانایی‌ها را ببین
+        <a href="#samples" class="btn btn-primary">نمونه‌کارها را ببین
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 6l-6 6 6 6"/></svg></a>
-        <a href="#samples" class="btn btn-dark">نمونه‌کارها</a>
+        <a href="#features" class="btn btn-dark">توانایی‌ها</a>
       </div>
       <div class="trust">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>کاملاً فارسی</span>
@@ -241,18 +255,18 @@ footer ul a{font-size:13.5px;color:var(--muted)}footer ul a:hover{color:var(--br
   </div>
 </section>
 
+<section class="samples" id="samples">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">نمونه‌ها</span><h2>افیکسا در عمل</h2><p>گلچینی از خروجی ابزارهای افیکسا. روی هر نمونه بزنید تا همان‌جا و بی‌درنگ پخش شود.</p></div>
+    <div class="pf-grid" id="pfgrid"></div>
+    <p class="samp-note">پیش‌نمایش‌های نمایشی؛ در نسخه‌ی نهایی با نمونه‌های واقعی جایگزین می‌شوند.</p>
+  </div>
+</section>
+
 <section class="features" id="features">
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">توانایی‌های افیکسا</span><h2>هر چه برای کار با صدا لازم داری</h2><p>شش ابزار هوشمند با رابط فارسی؛ از تغییر صدا تا ساخت موسیقی، همه زیر یک سقف.</p></div>
     <div class="fgrid" id="fgrid"></div>
-  </div>
-</section>
-
-<section class="samples" id="samples">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">نمونه‌ها</span><h2>افیکسا در عمل</h2><p>چند نمونه از خروجی توانایی‌های افیکسا. برای مشاهده‌ی پیش‌نمایش روی هر کارت بزن.</p></div>
-    <div class="sgrid" id="sgrid"></div>
-    <p class="samp-note">نمونه‌ها جنبه‌ی نمایشی دارند و برای معرفی قابلیت‌ها آماده شده‌اند.</p>
   </div>
 </section>
 
@@ -363,29 +377,47 @@ const FEAT=[
  {c:5,ic:I.v5,name:'ساخت موسیقی',desc:'موسیقی اختصاصی و بدون کپی‌رایت را در چند ثانیه بسازید.'},
  {c:6,ic:I.v6,name:'جداسازی صدای خواننده',desc:'صدای خواننده را از ساز جدا کنید و نسخه‌ی کارائوکه بسازید.'},
 ];
-const SAMP=[
- {c:3,name:'حذف نویز صدا',proj:'گفتار شفاف',note:'قبل و بعد از حذف نویز'},
- {c:1,name:'تغییر صدا',proj:'چند صدا از یک نفر',note:'تبدیل تُن و جنسیت صدا'},
- {c:4,name:'گویندگی متن',proj:'روایت فارسی',note:'متن به گفتار طبیعی'},
- {c:5,name:'ساخت موسیقی',proj:'قطعه‌ی بی‌کلام',note:'موسیقی بدون کپی‌رایت'},
- {c:6,name:'جداسازی وکال',proj:'نسخه‌ی کارائوکه',note:'جدا کردن خواننده از ساز'},
- {c:2,name:'بهبود پادکست',proj:'اپیزود تمیز',note:'نرمال‌سازی و حذف سکوت'},
+const PF=[
+ {c:1,t:'صوت',dur:'۰:۱۲',name:'تقلید صدا',sub:'تبدیل صدای گوینده',size:'lg',freq:196},
+ {c:3,t:'صوت',dur:'۰:۰۸',name:'حذف نویز',sub:'قبل / بعد',size:'',freq:220},
+ {c:4,t:'صوت',dur:'۰:۱۵',name:'گویندگی فارسی',sub:'متن به گفتار',size:'',freq:262},
+ {c:5,t:'صوت',dur:'۰:۲۰',name:'ساخت موسیقی',sub:'قطعه‌ی بی‌کلام',size:'wide',freq:174},
+ {c:6,t:'صوت',dur:'۰:۱۸',name:'کارائوکه',sub:'جداسازی وکال',size:'',freq:233},
+ {c:2,t:'صوت',dur:'۰:۲۵',name:'بهبود پادکست',sub:'نرمال‌سازی صدا',size:'',freq:208},
+ {c:1,t:'صوت',dur:'۰:۱۰',name:'تغییر صدای زنده',sub:'افکت بلادرنگ',size:'',freq:294},
+ {c:5,t:'صوت',dur:'۰:۳۰',name:'افکت صوتی',sub:'ساخت ساند‌افکت',size:'wide',freq:147},
 ];
-function bars(n,seed){let h='';for(let i=0;i<n;i++){const r=Math.abs(Math.sin((i+seed)*0.7)*0.6+Math.sin((i+seed)*0.23)*0.4);h+=`<i style="height:${Math.round((0.18+r*0.82)*100)}%"></i>`}return h}
-function abars(n,seed){let h='';for(let i=0;i<n;i++){const hh=Math.round((0.2+Math.abs(Math.sin((i+seed)*0.6))*0.8)*100);h+=`<i style="height:${hh}%;--dur:${(0.8+((i*7)%9)/10).toFixed(2)}s;--dl:${((i%9)*0.07).toFixed(2)}s"></i>`}return h}
-
-document.getElementById('fgrid').innerHTML=FEAT.map((f,i)=>
- `<div class="fcard" style="--cat:var(--c${f.c})"><div class="fi">${f.ic}</div><h4>${f.name}</h4><p>${f.desc}</p><div class="fwave">${bars(30,i*4+1)}</div><div class="flabel">خروجی نمونه</div></div>`).join('');
-
-document.getElementById('sgrid').innerHTML=SAMP.map((s,i)=>
- `<article class="samp" style="--cat:var(--c${s.c})"><div class="thumb"><span class="glow"></span><span class="badge">نمونه</span>
-   <button class="play" aria-label="پیش‌نمایش ${s.name}">${I.play}</button>
-   <div class="eqov">${abars(26,i*5)}</div><h4 class="ttl">${s.name}</h4></div>
-   <div class="scap"><b>«${s.proj}»</b><span>${s.note}</span></div></article>`).join('');
-document.querySelectorAll('.samp .play').forEach(btn=>btn.onclick=()=>{
- const card=btn.closest('.samp');const on=card.classList.toggle('playing');
- if(on)setTimeout(()=>card.classList.remove('playing'),3200);
-});
+const micIc='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>';
+const pauseIc='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+function pfbars(n,seed){let h='';for(let i=0;i<n;i++){const r=Math.abs(Math.sin((i+seed)*0.6)*0.6+Math.sin((i+seed)*0.21)*0.4);h+=`<i style="height:${Math.round((0.22+r*0.78)*100)}%;--d:${(0.7+((i*5)%8)/10).toFixed(2)}s;--dd:${((i%7)*0.06).toFixed(2)}s"></i>`}return h}
+document.getElementById('pfgrid').innerHTML=PF.map((p,i)=>{
+ const big=p.size==='lg'||p.size==='wide';const nb=big?34:20;
+ return `<article class="pf ${p.size}" style="--cat:var(--c${p.c})" data-freq="${p.freq}" tabindex="0" role="button" aria-label="پخش نمونه ${p.name}">
+   <span class="pf-ov"></span>
+   <div class="pf-top"><span class="pf-type">${micIc}${p.t}</span><span class="pf-dur">${p.dur}</span></div>
+   <div class="pf-wave">${pfbars(nb,i*4)}</div>
+   <div class="pf-bot"><span class="pf-meta"><b>${p.name}</b><span>${p.sub}</span></span>
+     <button class="pf-play" aria-label="پخش یا توقف"><span class="ic-play">${I.play}</span><span class="ic-pause">${pauseIc}</span></button></div>
+   <span class="pf-prog"><i></i></span></article>`}).join('');
+let actx,curr=null,ctimer=null;
+function stopAll(){document.querySelectorAll('.pf.playing').forEach(x=>{x.classList.remove('playing');const b=x.querySelector('.pf-prog i');if(b){b.style.transition='none';b.style.width='0'}});if(curr){curr.stop();curr=null}if(ctimer){clearTimeout(ctimer);ctimer=null}}
+function playPF(tile){
+ const on=tile.classList.contains('playing');stopAll();if(on)return;
+ tile.classList.add('playing');const dur=4.6;
+ try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();if(actx.state==='suspended')actx.resume();}catch(e){actx=null}
+ if(actx){const base=+tile.dataset.freq||220;const now=actx.currentTime;
+  const master=actx.createGain();master.gain.setValueAtTime(0.0001,now);master.gain.exponentialRampToValueAtTime(0.12,now+0.08);master.connect(actx.destination);
+  const o=actx.createOscillator();o.type='triangle';o.connect(master);
+  const pad=actx.createGain();pad.gain.value=0.045;pad.connect(actx.destination);const o2=actx.createOscillator();o2.type='sine';o2.connect(pad);
+  const seq=[0,7,12,7,5,10,3,12];const step=dur/seq.length;
+  seq.forEach((nn,k)=>{const f=base*Math.pow(2,nn/12);o.frequency.setValueAtTime(f,now+k*step);o2.frequency.setValueAtTime(f/2,now+k*step)});
+  master.gain.setValueAtTime(0.12,now+dur-0.4);master.gain.exponentialRampToValueAtTime(0.0001,now+dur);
+  o.start(now);o2.start(now);o.stop(now+dur);o2.stop(now+dur);
+  curr={stop(){try{o.stop();o2.stop();}catch(e){}}};}
+ const bar=tile.querySelector('.pf-prog i');if(bar){bar.style.transition='none';bar.style.width='0';requestAnimationFrame(()=>{bar.style.transition='width '+dur+'s linear';bar.style.width='100%'})}
+ ctimer=setTimeout(()=>{tile.classList.remove('playing');curr=null},dur*1000+60);
+}
+document.querySelectorAll('.pf').forEach(el=>{el.addEventListener('click',()=>playPF(el));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();playPF(el)}});});
 
 document.getElementById('acc').innerHTML=[
  ['آیا استفاده از افیکسا رایگان است؟','بله، افیکسا یک پلن رایگان دارد که دسترسی به همه‌ی توانایی‌ها را با استفاده‌ی روزانه‌ی محدود فراهم می‌کند. برای حجم بیشتر و کیفیت بالاتر می‌توانید به پلن حرفه‌ای ارتقا دهید.'],

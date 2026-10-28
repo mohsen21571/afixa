@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="افیکسا — استودیوی صدای هوشمند؛ تغییر صدا، حذف نویز، ساخت پادکست و موسیقی، تبدیل گفتار و متن و جداسازی وکال با هوش مصنوعی.">
+<title>افیکسا — استودیوی صدای هوشمند</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+</head>
+<body>
+
+<!-- هدر -->
+<header class="site-header sticky top-0 z-50 border-b border-line">
+  <div class="wrap flex items-center gap-4 min-h-[68px] py-2.5">
+    <a href="#top" class="flex items-center gap-3 shrink-0" aria-label="افیکسا">
+      <span class="logo">FXA</span>
+      <span class="meta leading-none">
+        <span class="block font-black text-[19px] tracking-wide">افیکسا</span>
+        <span class="block font-mono text-[11px] text-faint">fxa.ir</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex gap-1 mx-auto">
+      <a class="nav-link" href="#samples">نمونه‌ها</a>
+      <a class="nav-link" href="#features">توانایی‌ها</a>
+      <a class="nav-link" href="#steps">نحوه‌ی کار</a>
+      <a class="nav-link" href="#pricing">تعرفه</a>
+      <a class="nav-link" href="#faq">سؤالات</a>
+    </nav>
+    <div class="flex items-center gap-2.5 shrink-0">
+      <button id="theme" class="iconbtn" aria-label="تغییر پوسته"></button>
+      <a href="#pricing" class="btn btn-primary">شروع رایگان</a>
+    </div>
+  </div>
+</header>
+
+<!-- هیرو -->
+<section id="top" class="hero-bg text-herofg border-b border-heroline overflow-hidden">
+  <div class="wrap grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-11 items-center py-12">
+    <div>
+      <span class="eyebrow !text-herofg" style="background:color-mix(in srgb,#fff 9%,transparent);border-color:var(--hero-line)"><span class="dot"></span>پلتفرم هوش مصنوعی صدا</span>
+      <h1 class="mt-5 font-black tracking-tight text-[clamp(30px,5vw,52px)] max-w-[15ch]">هر کاری با <span class="hl">صدا</span>، در یک استودیوی هوشمند</h1>
+      <p class="mt-[18px] text-heromuted leading-loose text-[clamp(15px,2vw,18px)] max-w-[50ch]">افیکسا صدا را تغییر می‌دهد، نویز را پاک می‌کند، گفتار را به متن تبدیل می‌کند، موسیقی می‌سازد و صدای خواننده را از آهنگ جدا می‌کند — همه به‌صورت آنلاین و فارسی.</p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="#samples" class="btn btn-primary">نمونه‌کارها را ببین
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 6l-6 6 6 6"/></svg></a>
+        <a href="#features" class="btn btn-dark">توانایی‌ها</a>
+      </div>
+      <div class="flex flex-wrap gap-x-[18px] gap-y-2 mt-[26px] text-[13px] text-heromuted">
+        <span class="inline-flex items-center gap-[7px]"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>کاملاً فارسی</span>
+        <span class="inline-flex items-center gap-[7px]"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>کیفیت استودیویی</span>
+        <span class="inline-flex items-center gap-[7px]"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>شش توانایی در یک پلتفرم</span>
+      </div>
+    </div>
+    <div class="pv-card" aria-hidden="true">
+      <div class="pv-top"><span class="dots"><i></i><i></i><i></i></span><span class="pv-url">fxa.ir</span></div>
+      <div class="p-[18px]">
+        <div class="flex flex-wrap gap-[9px] mb-[14px]">
+          <span class="pv-chip on">حذف نویز</span><span class="pv-chip">تغییر صدا</span><span class="pv-chip">ساخت موسیقی</span>
+        </div>
+        <div class="pv-wave" id="pvwave"></div>
+        <div class="flex items-center justify-between mt-[15px]">
+          <span class="inline-flex items-center gap-[7px] text-xs text-heromuted"><span class="pulse"></span>شش توانایی هوشمند</span>
+          <span class="text-[12.5px] font-bold text-brand">صدای حرفه‌ای ↙</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- نمونه‌ها -->
+<section id="samples" class="py-[60px] bg-surface-2 border-y border-line">
+  <div class="wrap">
+    <div class="text-center max-w-[640px] mx-auto mb-[38px]">
+      <span class="eyebrow">نمونه‌ها</span>
+      <h2 class="font-black tracking-tight text-[clamp(24px,3.6vw,36px)] my-3">افیکسا در عمل</h2>
+      <p class="text-muted text-[15.5px]">چند نمونه از خروجی توانایی‌های افیکسا. برای مشاهده‌ی پیش‌نمایش روی هر کارت بزن.</p>
+    </div>
+    <div id="sgrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]"></div>
+    <p class="text-center text-[12.5px] text-faint mt-6">نمونه‌ها جنبه‌ی نمایشی دارند و برای معرفی قابلیت‌ها آماده شده‌اند.</p>
+  </div>
+</section>
+
+<!-- توانایی‌ها -->
+<section id="features" class="py-16">
+  <div class="wrap">
+    <div class="text-center max-w-[640px] mx-auto mb-[38px]">
+      <span class="eyebrow">توانایی‌های افیکسا</span>
+      <h2 class="font-black tracking-tight text-[clamp(24px,3.6vw,36px)] my-3">هر چه برای کار با صدا لازم داری</h2>
+      <p class="text-muted text-[15.5px]">شش ابزار هوشمند با رابط فارسی؛ از تغییر صدا تا ساخت موسیقی، همه زیر یک سقف.</p>
+    </div>
+    <div id="fgrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]"></div>
+  </div>
+</section>
+
+<!-- نحوه‌ی کار -->
+<section id="steps" class="py-[60px]">
+  <div class="wrap">
+    <div class="text-center max-w-[640px] mx-auto mb-[38px]">
+      <span class="eyebrow">نحوه‌ی کار</span>
+      <h2 class="font-black tracking-tight text-[clamp(24px,3.6vw,36px)] my-3">ساده و سریع، در سه قدم</h2>
+      <p class="text-muted text-[15.5px]">بدون پیچیدگی و دانش فنی به نتیجه‌ی حرفه‌ای برس.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+      <div class="scard"><div class="num">۰۱</div><h4 class="text-[17px] font-extrabold mt-3 mb-[7px]">توانایی را انتخاب کن</h4><p class="text-[13.5px] text-muted">یکی از شش ابزار افیکسا را که به کارت می‌آید انتخاب کن؛ تغییر صدا، حذف نویز، ساخت موسیقی و…</p></div>
+      <div class="scard"><div class="num">۰۲</div><h4 class="text-[17px] font-extrabold mt-3 mb-[7px]">دلخواهت را تنظیم کن</h4><p class="text-[13.5px] text-muted">گزینه‌هایی مثل نوع صدا، شدت یا سبک را مطابق سلیقه‌ات انتخاب کن تا خروجی دقیقاً همان شود که می‌خواهی.</p></div>
+      <div class="scard"><div class="num">۰۳</div><h4 class="text-[17px] font-extrabold mt-3 mb-[7px]">نتیجه‌ی حرفه‌ای بگیر</h4><p class="text-[13.5px] text-muted">هوش مصنوعی در چند لحظه خروجی باکیفیت را آماده می‌کند تا در پروژه‌هایت استفاده کنی.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- تعرفه -->
+<section id="pricing" class="py-[60px] bg-surface-2 border-y border-line">
+  <div class="wrap">
+    <div class="text-center max-w-[640px] mx-auto mb-[38px]">
+      <span class="eyebrow">تعرفه</span>
+      <h2 class="font-black tracking-tight text-[clamp(24px,3.6vw,36px)] my-3">پلنی برای هر نیاز</h2>
+      <p class="text-muted text-[15.5px]">برای شروع رایگان است؛ هر زمان خواستی به پلن حرفه‌ای ارتقا بده.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px] items-stretch">
+      <div class="pcard">
+        <div class="flex items-center justify-between mb-1.5"><span class="text-[15px] font-extrabold">رایگان</span></div>
+        <div class="flex items-baseline gap-1.5 mt-2.5 mb-1"><b class="text-[30px] font-black tabular-nums">۰</b><span class="text-[13px] text-faint">تومان / ماه</span></div>
+        <ul class="list-none p-0 my-4 flex flex-col gap-2.5">
+          <li class="flex gap-[9px] items-start text-[13.5px] text-muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>دسترسی به همه‌ی توانایی‌ها</li>
+          <li class="flex gap-[9px] items-start text-[13.5px] text-muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>استفاده‌ی روزانه‌ی محدود</li>
+          <li class="flex gap-[9px] items-start text-[13.5px] text-muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>کیفیت استاندارد</li>
+        </ul>
+        <a href="#features" class="btn btn-ghost mt-auto w-full">شروع کنید</a>
+      </div>
+      <div class="pcard pop">
+        <div class="flex items-center justify-between mb-1.5"><span class="text-[15px] font-extrabold">حرفه‌ای</span><span class="text-[11px] font-bold text-white bg-brand rounded-full px-[11px] py-[3px]">محبوب</span></div>
+        <div class="flex items-baseline gap-1.5 mt-2.5 mb-1"><b class="text-[30px] font-black tabular-nums">۱۹۹٬۰۰۰</b><span class="text-[13px] text-faint">تومان / ماه</span></div>
+        <ul class="list-none p-0 my-4 flex flex-col gap-2.5">
+          <li class="flex gap-[9px] items-start text-[13.5px] text-muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>استفاده‌ی نامحدود</li>
+          <li class="flex gap-[9px] items-start text-[13.5px] text-muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>کیفیت بالا و خروجی بدون واترمارک</li>
+          <li class="flex gap-[9px] items-start text-[13.5px] text-muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>سرعت و اولویت پردازش بیشتر</li>
+        </ul>
+        <a href="#features" class="btn btn-primary mt-auto w-full">ارتقا به حرفه‌ای</a>
+      </div>
+      <div class="pcard">
+        <div class="flex items-center justify-between mb-1.5"><span class="text-[15px] font-extrabold">سازمانی</span></div>
+        <div class="flex items-baseline gap-1.5 mt-2.5 mb-1"><b class="text-[30px] font-black">تماس</b><span class="text-[13px] text-faint">بگیرید</span></div>
+        <ul class="list-none p-0 my-4 flex flex-col gap-2.5">
+          <li class="flex gap-[9px] items-start text-[13.5px] text-muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>دسترسی API</li>
+          <li class="flex gap-[9px] items-start text-[13.5px] text-muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>حجم بالا و پشتیبانی اختصاصی</li>
+          <li class="flex gap-[9px] items-start text-[13.5px] text-muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>قرارداد سطح سرویس (SLA)</li>
+        </ul>
+        <a href="#faq" class="btn btn-ghost mt-auto w-full">تماس با ما</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- سؤالات -->
+<section id="faq" class="py-[60px]">
+  <div class="wrap">
+    <div class="text-center max-w-[640px] mx-auto mb-[38px]">
+      <span class="eyebrow">سؤالات متداول</span>
+      <h2 class="font-black tracking-tight text-[clamp(24px,3.6vw,36px)] my-3">پاسخ به پرسش‌های شما</h2>
+    </div>
+    <div id="acc" class="max-w-[760px] mx-auto flex flex-col gap-3"></div>
+  </div>
+</section>
+
+<!-- بنر دعوت -->
+<section class="py-[30px]">
+  <div class="wrap">
+    <div class="ctaband-inner">
+      <h2 class="font-black tracking-tight text-[clamp(23px,3.5vw,34px)]">توانایی‌های افیکسا را از نزدیک ببین</h2>
+      <p class="text-heromuted mx-auto my-3 max-w-[46ch] text-[15px]">شش ابزار هوشمند صدا، آماده‌ی استفاده — همین حالا شروع کن.</p>
+      <a href="#features" class="btn btn-primary">رایگان شروع کن</a>
+    </div>
+  </div>
+</section>
+
+<!-- فوتر -->
+<footer class="border-t border-line bg-surface-2 mt-[30px]">
+  <div class="wrap py-[34px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-[26px]">
+    <div>
+      <a href="#top" class="flex items-center gap-3 mb-3"><span class="logo">FXA</span><span class="leading-none"><span class="block font-black text-[19px]">افیکسا</span><span class="block font-mono text-[11px] text-faint">fxa.ir</span></span></a>
+      <p class="text-[13px] text-muted max-w-[34ch]">استودیوی صدای هوشمند؛ ابزارهای هوش مصنوعی برای تغییر، ویرایش و ساخت صدا به زبان فارسی.</p>
+    </div>
+    <div><h5 class="text-[13px] font-extrabold mb-3">محصول</h5><ul class="list-none p-0 m-0 flex flex-col gap-[9px] text-[13.5px] text-muted"><li><a href="#features" class="hover:text-brand">توانایی‌ها</a></li><li><a href="#samples" class="hover:text-brand">نمونه‌ها</a></li><li><a href="#pricing" class="hover:text-brand">تعرفه</a></li></ul></div>
+    <div><h5 class="text-[13px] font-extrabold mb-3">شرکت</h5><ul class="list-none p-0 m-0 flex flex-col gap-[9px] text-[13.5px] text-muted"><li><a href="#top" class="hover:text-brand">درباره‌ی ما</a></li><li><a href="#faq" class="hover:text-brand">سؤالات متداول</a></li><li><a href="#top" class="hover:text-brand">وبلاگ</a></li></ul></div>
+    <div><h5 class="text-[13px] font-extrabold mb-3">ارتباط</h5><ul class="list-none p-0 m-0 flex flex-col gap-[9px] text-[13.5px] text-muted"><li><a href="#top" class="hover:text-brand">پشتیبانی</a></li><li><a href="#top" class="hover:text-brand">قوانین</a></li><li><a href="#top" class="hover:text-brand">حریم خصوصی</a></li></ul></div>
+  </div>
+  <div class="border-t border-line">
+    <div class="wrap py-4 flex flex-wrap gap-3 items-center justify-between">
+      <span class="text-xs text-faint font-mono">© ۱۴۰۴ افیکسا — fxa.ir</span>
+      <div class="flex gap-[9px]">
+        <a href="#top" class="social" aria-label="اینستاگرام"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#top" class="social" aria-label="تلگرام"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 2.8 11.6c-.9.4-.9 1 .1 1.3l4.9 1.5 1.9 5.8c.2.5.1.7.6.7.4 0 .6-.2.8-.4l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.2-.5-1.8-1.9-1.5Z"/></svg></a>
+        <a href="#top" class="social" aria-label="یوتیوب"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5-4.5-2.5Z" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
